@@ -1,0 +1,5 @@
+/ext/ruby-parser/ruby/parse.c
+/ext/ruby-parser/ruby/parse.h
+/lib/*.bundle
+/tmp
+/Gemfile.lock
