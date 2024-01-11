@@ -5,6 +5,7 @@ $objs = %w[
   node
   parse
   parser_st
+  ../helper
 ].map do |o|
   o + ".#{$OBJEXT}"
 end
@@ -12,6 +13,7 @@ end
 append_cppflags("-DUNIVERSAL_PARSER=1")
 
 $INCFLAGS << " -I" << File.expand_path("../../../../", __FILE__)
+$INCFLAGS << " -I" << File.expand_path("../../include", __FILE__)
 $INCFLAGS << " -I" << File.expand_path("../ruby", __FILE__)
 
-create_makefile('ruby-parser')
+create_makefile('ruby_parser')
