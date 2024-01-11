@@ -77,6 +77,6 @@ namespace "setup" do
   end
 end
 
-Rake::ExtensionTask.new("ruby-parser") do |ext|
+Rake::ExtensionTask.new("ruby_parser") do |ext|
   ext.ext_dir = "ext/ruby-parser/ruby"
 end

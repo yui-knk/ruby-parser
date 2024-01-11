@@ -23,4 +23,4 @@ jobs:
       - run: bundle install
       - run: bundle exec rake build:parser
       - run: bundle exec rake compile
-      - run: nm --undefined-only --extern-only lib/ruby-parser.so
+      - run: nm --undefined-only --extern-only lib/ruby_parser.so
