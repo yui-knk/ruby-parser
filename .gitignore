@@ -1,5 +1,6 @@
 /ext/ruby-parser/ruby/parse.c
 /ext/ruby-parser/ruby/parse.h
 /lib/*.bundle
+/lib/ruby_parser.so
 /tmp
 /Gemfile.lock
