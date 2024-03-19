@@ -5,6 +5,7 @@ $objs = %w[
   node
   parse
   parser_st
+  ruby_parser
   ../helper
 ].map do |o|
   o + ".#{$OBJEXT}"
