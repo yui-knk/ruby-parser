@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem "lrama", "0.6.0"
+gem "lrama", "0.6.3"
 gem "rake-compiler", "~> 1.0"

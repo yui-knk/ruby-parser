@@ -138,7 +138,7 @@ nil_p(VALUE obj)
 }
 
 static VALUE
-fstring(VALUE obj)
+str_to_interned_str(VALUE obj)
 {
     return obj;
 }
@@ -182,12 +182,6 @@ static VALUE
 str_subseq(VALUE str, long beg, long len)
 {
     return (VALUE)string_new_with_str_len(rstring_ptr(str) + beg, len);
-}
-
-static int
-obj_frozen(VALUE obj)
-{
-    return 0;
 }
 
 static VALUE
@@ -277,12 +271,6 @@ is_local_id(ID id)
 }
 
 static VALUE
-cstr_to_inum(const char *str, int base, int badcheck)
-{
-    return (VALUE)number_new_with_long((long)atoi(str));
-}
-
-static VALUE
 obj_written(VALUE old, VALUE slot, VALUE young)
 {
     return old;
@@ -307,12 +295,6 @@ obj_hide(VALUE obj)
 }
 
 static VALUE
-sym_intern_ascii_cstr(const char *ptr)
-{
-    return id_new();
-}
-
-static VALUE
 hash_aset(VALUE hash, VALUE key, VALUE val)
 {
     return val;
@@ -322,12 +304,6 @@ static VALUE
 obj_write(VALUE old, VALUE *slot, VALUE young)
 {
     return old;
-}
-
-static VALUE
-int2fix(long i)
-{
-    return (VALUE)number_new_with_long(i);
 }
 
 static void
@@ -467,14 +443,13 @@ parser_config_initialize(rb_parser_config_t *config)
     config->enc_asciicompat = enc_asciicompat;
     config->str_new_frozen = str_new_frozen;
     config->nil_p = nil_p;
-    config->fstring = fstring;
+    config->str_to_interned_str = str_to_interned_str;
     config->string_value_cstr = string_value_cstr;
     config->ast_new = ast_new;
     config->compile_callback = compile_callback;
     config->rstring_ptr = rstring_ptr;
     config->rstring_len = rstring_len;
     config->str_subseq = str_subseq;
-    config->obj_frozen = obj_frozen;
     config->verbose = verbose;
     config->rtest = rtest;
     config->enc_isalnum = enc_isalnum;
@@ -482,14 +457,11 @@ parser_config_initialize(rb_parser_config_t *config)
     config->mbclen_charfound_p = mbclen_charfound_p;
     config->intern3 = intern3;
     config->is_local_id = is_local_id;
-    config->cstr_to_inum = cstr_to_inum;
     config->obj_written = obj_written;
     config->ident_hash_new = ident_hash_new;
     config->obj_hide = obj_hide;
-    config->sym_intern_ascii_cstr = sym_intern_ascii_cstr;
     config->hash_aset = hash_aset;
     config->obj_write = obj_write;
-    config->int2fix = int2fix;
 }
 
 void
